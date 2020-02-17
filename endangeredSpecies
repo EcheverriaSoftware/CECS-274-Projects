@@ -1,0 +1,43 @@
+/* Miguel Echeverria - #018358962
+ * Feburary 5, 2020
+ * Purpose: This program is used store info on endangered species.
+ * Inputs: N/A.
+ * Outputs: N/A.
+*/
+public class endangeredSpecies
+{
+    private String speciesName; //Instance variable that stores the species name.   
+    private int currentPopulation; //Instance variable that stores the current population of species.
+    private double growthRate; //Instance variable that stores the growth rate of species.
+    public endangeredSpecies(){ //Default endangeredSpecies object if there is no arguements
+        speciesName = "Pikachu";
+        currentPopulation = 100;
+        growthRate = 2.0;
+    }
+    public endangeredSpecies(String sN, int cP, double gR){ //Creates an object with the following attriubtes: Species name(String), population(int), and growth rate(double). 
+        speciesName = sN; //Our arguement from the sN parameter is saved as species name.
+        currentPopulation = cP; //Our arguement from the cP parameter is saved as the current population.
+        growthRate = gR; //Our arguement from the gR parameter is saved as growth.
+    }
+    public String getSpeciesName(){ //Return the species name of the object.
+        return speciesName;
+    }
+    public int getCurrentPopulation(){ //Return the current population of the object.
+        return currentPopulation;
+    }
+    public double getGrowthRate(){ //Return the growth rate of the object,
+        return growthRate;
+    }
+    public void setCurrentPopulation(int cP){ //Set or change the current population of the object. Arguement must be an integer.
+        currentPopulation = cP; //Our arguement from the cP parameter is saved as the current population.
+    }
+    public void setGrowthRate(double gR){ //Set and change the growth rate of the object. Arguement can be any number.
+        growthRate = gR; //Our arguement from the gR parameter is saved as growth.
+    }
+    public String toString(){ //Overides the toString method and to print the attirubtes of the object. 
+        return("Species Name: " + speciesName + "\nCurrent Population: " + currentPopulation + "\nGrowth Rate: " + growthRate); 
+    }
+    public long calculatePopulationGrowthAfterTime(int years, int cP, double gR){ //Calculates and returns the population after an inputted amount of years.
+        return (long)(cP * Math.pow(2.71, (gR * years)));
+    }
+}
