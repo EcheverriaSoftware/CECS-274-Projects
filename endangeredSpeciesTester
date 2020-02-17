@@ -1,0 +1,31 @@
+/* Miguel Echeverria - #018358962
+ * Feburary 5, 2020
+ * Purpose: This program is used the test the endangeredSpecies class.
+ * Inputs: Species name, current population, growth rate, and time(Years).
+ * Outputs: Species name, current population, growth rate, and projected population over time(years)..
+ */
+import java.util.Random;
+public class endangerdSpeciesTester
+{
+    public static void main(String [] args){
+        Random rand = new Random(); //Random instance is created to assit with time input of calculatePopulationGrowAfterTime.
+        int upperBounds = 10; // To be used as agruemnt for our random instance to limit our domain up 10.
+        int randomAmountOfYearsPassed = rand.nextInt(upperBounds) + 1; // Produces a random number of years (1 - 10 years) as input for calculatePopulationGrowAfterTime.
+        endangeredSpecies eS1 = new endangeredSpecies(); //Declaring the default instance of the endangeredSpecies class.
+        System.out.println("The new endangered species\n" + eS1); //Prints out the attributes of the default instance of the endangeredSpecies class.
+        endangeredSpecies eS2 = new endangeredSpecies("Litten", 305, 4.0); //Declares a new instance of endangeredSpecies class with the arguements: ("Litten", 305, 4.0).
+        System.out.println(); //Used for formatting outputs.
+        System.out.println("The new endangered species\n" + eS2); ///Prints out the attributes of the new instance of the endangeredSpecies class.
+        System.out.println(); //Used for formatting outputs.
+        System.out.println("The name of the species is: " + eS2.getSpeciesName()); //Prints the species name of the new instance of endangeredSpecies.
+        System.out.println("The current population of " + eS2.getSpeciesName() + " is " + eS2.getCurrentPopulation()); //Prints the population new instance of endangeredSpecies.
+        System.out.println(eS2.getSpeciesName() + "'s growth rate is " + eS2.getGrowthRate()); //Prints the growth rate of the new instance of endangeredSpecies.
+        System.out.println(); //Used for formatting outputs.
+        eS2.setGrowthRate(6.0); //Sets the growth rate of the new instance of endangeredSpecies.
+        eS2.setCurrentPopulation(678); //Sets the population of the new instance of endangeredSpecies.
+        System.out.println("The new population of " + eS2.getSpeciesName() + " is " + eS2.getCurrentPopulation()); //Prints the new attruibtues of the new instance of endangeredSpecies.
+        System.out.println(eS2.getSpeciesName() + "'s new growth rate is " + eS2.getGrowthRate());
+        //Prints the projected population after a certain number of years.
+        System.out.println("The population of " + eS2.getSpeciesName() + " after " + randomAmountOfYearsPassed + " years is " + eS2.calculatePopulationGrowthAfterTime(randomAmountOfYearsPassed, eS2.getCurrentPopulation(), eS2.getGrowthRate()));
+    }
+}
