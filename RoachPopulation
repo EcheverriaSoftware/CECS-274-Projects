@@ -1,0 +1,38 @@
+/* Miguel Echeverria - 018358962
+ * Oscar Flores - 
+ * Feburary 15, 2020
+ * Purpose: This program is used to store info on Roach populations.
+ * Inputs: N/A.
+ * Outputs: N/A.
+ */
+public class RoachPopulation
+{
+    private int roachPopulation; // Instance variable that stores roach population.
+    private String gangName; // Instance varaible that store the gang name of the roach population.
+    public RoachPopulation(){ // Default instance of the class if it is contruscted with no arguements.
+        roachPopulation = 10; // The population of the default instance will always be 10.
+        gangName = "Colony One"; // The gang name of the default instance will always be "Colony One".
+    }
+    public RoachPopulation(int intialRoachPopulation, String gN){ // Creates an instance of the class with the following parameters: intialRoachPopulation and gN.
+        roachPopulation = intialRoachPopulation; // The parameter initalRoachPopulation will accept an int for an arguement and set equal to roachPopulation; this will be the population of the roaches.
+        gangName = gN; //The parameter gN will accept a String for agruement and set it equal to gangName; this will be the gang name for the roach population.
+    }
+    public void breed(){ // This mutator method will double the roach population when called. 
+        roachPopulation = roachPopulation * 2;
+    }
+    public void spray(){ //This mutator method will reduce the roach population by 10%.
+        roachPopulation = (int)(roachPopulation - (roachPopulation * .10));
+    }
+    public void setRoachGangName(String gN){ // This mutator method allows the user to change the gang name of the roach population as long the arguement is a string.
+        gangName = gN;
+    }
+    public int getRoaches(){ // This accessor method returns the roach population of the instance of the class.
+        return roachPopulation;
+    }
+    public String getGangName(){ // This accessor method return the roach population of the instance of the class.
+        return gangName;
+    }
+    public String toString(){ //This method overrides toString method to print the attributes of the instance of the class. 
+        return "The roach population of " + gangName + " is: " + roachPopulation;
+    }
+}
