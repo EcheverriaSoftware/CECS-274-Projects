@@ -1,0 +1,39 @@
+import java.util.Random; //Import statment to use the random class. 
+/* Miguel Echeverria - 018358962
+ * Oscar Flores
+ * Feburary 15, 2020
+ * Purpose: This program is used to test the RoachPopulation class.
+ * Inputs: Roach population(int) and gang name(String) for the roach population.
+ * Outputs: Gang name of the the roach popluation and its population after breeding and being sprayed.
+ */
+public class RoachPopulationTester
+{
+   public static void main(String[]args){
+       Random rand = new Random(); // Constructing a new instance of the random class.
+       int uppperBounds = 100; // Arguement for our Random instance rand, so that our intial roach population will not exceed 100 roaches
+       RoachPopulation colonyOne = new RoachPopulation(); // Constructor for an instance of the roach population called "colonyOne". This is the default constructor.
+       System.out.println(colonyOne); // Prints out the attributes of the roach population instance "colonyOne".
+       colonyOne.breed(); // The roach population of colonyOne doubles.
+       System.out.println("After breeding " + colonyOne.getGangName() + "'s population is: " + colonyOne.getRoaches()); // Prints the roach population of colonyOne after breeding.
+       colonyOne.spray(); // Takes 10% of the roach population of colonyOne.
+       System.out.println("After being sprayed " + colonyOne.getGangName() + "'s population is: " + colonyOne.getRoaches()); // Prints the roach popluation of colonyOne after being sprayed.
+       RoachPopulation colonyTwo = new RoachPopulation(rand.nextInt(uppperBounds) + 1, "Colony Two"); // Constructor for an instance of the roach population called "colonyTwo" with a random intial population and gang name of "Colony Two".
+       System.out.println(); // Formatting print statement.
+       System.out.println(colonyTwo); // Prints out the attributes of the roach population instance "colonyTwo".
+       colonyTwo.breed(); // Doubles the roach population of colonyTwo.
+       System.out.println("After breeding " + colonyTwo.getGangName() + "'s population is: " + colonyTwo.getRoaches()); // Prints the roach population of colonyTwo after breeding.
+       colonyTwo.breed(); // Doubles the roach population of colonyTwo.
+       System.out.println("After breeding " + colonyTwo.getGangName() + "'s population is: " + colonyTwo.getRoaches()); // Prints the roach population of colonyTwo after breeding.
+       colonyTwo.spray(); // Takes the 10% of the roach population of colonyTwo.
+       System.out.println("After being sprayed " + colonyTwo.getGangName() + "'s population is: " + colonyTwo.getRoaches()); // Prints the roach population of colonyTwo after being sprayed.
+       RoachPopulation colonyThree = new RoachPopulation(rand.nextInt(uppperBounds) + 1, "Colony Three"); // Constructor for an instance of the roach population called "colonyThree" with a random intial population and gang name of "Colony Three".
+       System.out.println(); // Formatting print statement.
+       System.out.println(colonyThree); // Prints out the attributes of the roach population instance "colonyThree".
+       colonyThree.spray(); // Takes 10% of the roach population of colonyThree.
+       System.out.println("After being sprayed " + colonyThree.getGangName() + "'s population is: " + colonyThree.getRoaches()); // Prints the roach population of colonyThree after being sprayed.
+       colonyThree.spray(); // Takes 10% of the roach population of colonyThree.
+       System.out.println("After being sprayed " + colonyThree.getGangName() + "'s population is: " + colonyThree.getRoaches()); // Prints the roach population of colonyThree after being sprayed.
+       colonyThree.breed(); // Doubles the roach population of colonyThree.
+       System.out.println("After breeding " + colonyThree.getGangName() + "'s population is: " + colonyThree.getRoaches()); // Prints the roach population of colonyThree after breeding.
+   }
+}
