@@ -1,0 +1,42 @@
+/* Miguel Echeverria
+ * Oscar Flores
+ * 3/7/2020
+ * Purporse: Print Pascal's Triangle.
+ * Inputs: A single integer acting as the nth line
+ * Outputs: Pascal's Triangle up to the inputted nth line.
+ */
+import java.util.Scanner;
+public class Pascal_Triangle
+{
+ public static void printPascalTriangle(int nth){ 
+     //The following prints and formats the traingle up to nth line.
+     for(int l = 0; l < nth; l++){
+         for(int i = 0; i <= l; i++){
+             System.out.print(calcNthLine(l, i) + " "); //Prints the nth line by calling calcNthLine.
+             
+         }
+         System.out.println(); // Formats the next line.
+     }
+ }
+ public static int calcNthLine(int a, int b){ 
+     // The following method calculate the nth of the triangle.
+     // By using int a and int b we can find the sums of the nth line of the triangle by multiplying and then dividing. 
+     int result = 1; // By having a seperate int as one, we can print the number 1 found on every line of the triangle.
+     if(b > a - b){
+         b = a - b;
+     }
+     for(int i = 0; i < b; i++){
+         result *= (a - i);
+         result /= (i + 1);
+     }
+     return result;
+ }
+ public static void main(String [] args){
+     Scanner input = new Scanner(System.in); 
+     //Ask the user up to what line they want print Pascal's Triangle to be printed.
+     System.out.print("Enter a number: ");
+     int nthLine = input.nextInt();
+     System.out.println("This your pascal triangle printed up to " + nthLine + " lines.");
+     printPascalTriangle(nthLine);
+ }
+}
