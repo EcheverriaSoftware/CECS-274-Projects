@@ -1,0 +1,19 @@
+public class TreeRunner{
+    public static void main(String[] args) {
+        Tree a = new Tree("A");
+        Tree b = new Tree("B");
+        Tree c = new Tree("C");
+        Tree d = new Tree("D");
+        Tree e = new Tree("E");
+        Tree f = new Tree("F");
+        Tree g = new Tree("G");
+        b.addSubtree(d);
+        b.addSubtree(e);
+        c.addSubtree(f);
+        c.addSubtree(g);
+        a.addSubtree(b);
+        a.addSubtree(c);
+        System.out.println(a.toString());
+        System.out.println(a.size());
+    }
+}
