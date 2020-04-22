@@ -1,0 +1,73 @@
+/*
+Programmer Name: Miguel Echeverria
+Programmer Name: Mark Fastner
+Date: 4/18/2020
+Purpose: This program is our Queue implemented with LinkedList structure.
+Inputs: N/A.
+Outputs: N/A.
+ */
+public class LinkedListQueue {
+    //Instance variables for our LinkedListQueue class.
+    //Qnode pointers for the front and rear of queue.
+    QNode front, rear;
+    //Our queue is intilizaed with a size of one.
+    int size = 1;
+
+    //No agruement constuctor for our LinkedListQueue class.
+    public LinkedListQueue() {
+        this.front = this.rear = null;
+    }
+
+    //Method to add a Person object to the queue.
+    //Works by creating a new node and changes the rear pointer to our new node.
+    public void add(Person key){
+        QNode temp = new QNode(key);
+
+        //An if statement for when the queue is empty.
+        if(this.rear ==  null){
+            this.front = this.rear = temp;
+            return;
+        }
+        this.rear.next = temp;
+        this.rear = temp;
+
+        //When a new node is added, size increments by one.
+        size++;
+    }
+
+    //Method to remove the node in front of the queue
+    //Works by shifting the pointer of the root node to the next.
+    public void remove(){
+        //An if statment checking if our queue is empty
+        if(this.front == null){
+            return;
+        }
+
+        QNode temp = this.front;
+        this.front = this.front.next;
+
+        //When a node is removed, size decrements by one.
+        size--;
+        if(this.front == null){
+            this.rear = null;
+        }
+    }
+
+    //Method that returns the size of the queue
+    public int queueSize() {
+        return size;
+    }
+
+    //Method to print all the elements of our queue.
+    //Works by saving a reference to the root node, then by using a while loop, the loop checks if we are the rear of the queue, if not, we move the pointer to the next node.
+    //Once the loop reaches the rear, we restore our root node by shifter the pointer to our reference
+    public void Print(){
+        QNode temp = this.front;
+        while(this.front != null){
+            System.out.println(this.front.key);
+            this.front = this.front.next;
+        }
+        this.front = temp;
+
+    }
+}
