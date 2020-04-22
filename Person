@@ -1,0 +1,24 @@
+/*
+Programmer Name: Miguel Echeverria
+Programmer Name: Mark Fastner
+Date: 4/18/2020
+Purpose: This program is used to store info on indiviuals.
+Inputs: N/A.
+Outputs: N/A.
+ */
+public class Person {
+    //Instance varaibles for the person's first and last name.
+    private String first_Name;
+    private String  last_Name;
+
+    //Two arguement constructor for our class
+    public Person(String firstName, String lastName){
+        first_Name = firstName;
+        last_Name = lastName;
+    }
+
+    //Override of toString to print the instance variables of the Person class.
+    public String toString(){
+        return "Name: " + first_Name + " " + last_Name;
+    }
+}
