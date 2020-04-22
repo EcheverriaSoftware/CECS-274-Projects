@@ -1,0 +1,52 @@
+/*
+Programmer Name: Miguel Echeverria
+Programmer Name: Mark Fastner
+Date: 4/18/2020
+Purpose: This program is the main method used to run our LinkedListQueue, Person, and QNode classes.
+Inputs: N/A.
+Outputs: All the instances of the Person class.
+ */
+public class QueueRunner {
+    public static void main(String [] args){
+        LinkedListQueue iPhone = new LinkedListQueue();
+        System.out.println("Fill up the queue with people ahead of me.");
+        iPhone.add(new Person("Keanu", "Reeves"));
+        iPhone.add(new Person("Kevin", "Conroy"));
+        iPhone.add(new Person("Stephen", "Amell"));
+        System.out.println("After loading up the queue with famous people:");
+        iPhone.Print();
+        System.out.println();
+
+        System.out.println("size = " + iPhone.queueSize());
+        iPhone.add(new Person("Miguel", "Echeverria"));
+        iPhone.add(new Person("Markie", "Davis"));
+        System.out.println("After adding Markie and I");
+        System.out.println("size = " + iPhone.queueSize());
+        iPhone.Print();
+        System.out.println();
+
+        System.out.println("Add some non-descript person");
+        iPhone.add(new Person("Briana", "Franco"));
+        System.out.println("size = " + iPhone.queueSize());
+        iPhone.Print();
+        System.out.println();
+
+        iPhone.remove();
+        System.out.println("Now they are gone.");
+        System.out.println("size = " + iPhone.queueSize());
+        iPhone.Print();
+        System.out.println();
+
+        System.out.println("The queue now has: " + iPhone.queueSize() + " in it.");
+        System.out.println("The first person to get a phone will be: " + iPhone.front.key);
+        iPhone.Print();
+        System.out.println();
+
+        int index = iPhone.queueSize();
+        for (int i = 0; i < index; i++ ) {
+            System.out.println("Oh look!  " + iPhone.front.key + " just got a phone!");
+            iPhone.remove();
+        }
+        System.out.println("size = " + iPhone.queueSize());
+    }
+}
