@@ -1,0 +1,55 @@
+/*
+ Miguel Echeverria
+ Mark Fastner
+ Purpose: This program demonstrates the hash set class.
+ Input: Names into a HashSet data structure.
+ Output: The elements of the union of two HashSets, the elements that intersect between two HashSets, and the elements that are unique between two HashSets.
+ */
+
+import java.util.Iterator;
+
+public class HashSetDemo
+{
+    public static void main(String[] args)
+    {
+        HashSet names = new HashSet(101);
+
+        names.add("Harry");
+        names.add("Sue");
+        names.add("Nina");
+        names.add("Susannah");
+        names.add("Larry");
+        names.add("Eve");
+        names.add("Sarah");
+        names.add("Adam");
+        names.add("Tony");
+        names.add("Katherine");
+        names.add("Juliet");
+        names.add("Romeo");
+        names.remove("Romeo");
+        names.remove("George");
+
+        HashSet names2 = new HashSet(101);
+        names2.add("Harry");
+        names2.add("Sue");
+        names2.add("Nina");
+        names2.add("Susannah");
+        names2.add("Linus");
+        names2.add("Sam");
+
+        System.out.println("testing union");
+        HashSet namesu = names.union(names2);
+        System.out.println(namesu);
+        System.out.println("");
+
+        System.out.println("testing intersect");
+        HashSet namesi = names.intersect(names2);
+        System.out.println(namesi);
+        System.out.println("");
+
+        System.out.println("testing difference");
+        HashSet namesd = names.difference(names2);
+        System.out.println(namesd);
+
+    }
+}
