@@ -1,0 +1,92 @@
+/* This class is used to illustrate the Comparable interface */
+/* It also overrides equals(),hashCode(), toString() */
+/*
+Programmer Name: Miguel Echeverria
+Programmer Name: Mark Fastner
+Date: 4/30/2020
+Purpose: The follow program is the driver method to test the findMin and findMax method of the Binary Search Tree data structure.
+Input: Root of a Binary Search Tree.
+Output: The smallest and the largest element of the Binary Search Tree.
+*/
+class Author implements Comparable<Author>{
+    String firstName;
+    String lastName;
+    /* Constructor */
+    public Author(String inlast, String infirst) {
+        lastName=inlast;
+        firstName=infirst;
+
+    }
+
+    // compareTo should return < 0 if this is supposed to be
+// less than other, > 0 if this is supposed to be greater than
+// other and 0 if they are supposed to be equal
+    public int compareTo(Author other){
+        if (this.lastName.equals(other.lastName))
+            return (this.firstName.compareTo(other.firstName));
+        else
+            return (this.lastName.compareTo(other.lastName));
+    }
+
+    /* equals() returns true if both the lastname and the firstname are the same */
+    public boolean equals(Author other) {
+        if (this.lastName.equals(other.lastName) &&
+                this.firstName.equals(other.firstName))
+            return true;
+        else
+            return false;
+    }
+
+    /* hashCode() returns the sum of the individual Strings' hashCode() values */
+    public int hashCode() {
+        return lastName.hashCode()+firstName.hashCode();
+    }
+
+    public String toString() {
+        return "The author's name is: " + firstName + " " + lastName;
+    }
+
+    public static void main (String [] args) {
+        //Instead of the orginal 3 author list, 12 new "author" objects were intialized.
+        Author auth1 = new Author("Echeverria","Miguel");
+        Author auth2 = new Author("Verne","Jules");
+        Author auth3 = new Author("Steinbeck","John");
+        Author auth4 = new Author("George","Orwell");
+        Author auth5 = new Author("Lee", "Stan");
+        Author auth6 = new Author("Kirby", "Jack");
+        Author auth7 = new Author("Fastner", "Mark");
+        Author auth8 = new Author("Franco", "Briana");
+        Author auth9 = new Author("Ammerlaan", "Allyson");
+        Author auth10 = new Author("Zefra", "Jessica");
+        Author auth11 = new Author("Davis", "Markie");
+        Author auth12 = new Author("Austin", "Allison");
+        Author auth13 = new Author("Dickens", "Charles");
+        Author auth14 = new Author("Austen", "Jane");
+        Author auth15 = new Author("Byron", "Lord");
+        BinarySearchTree BST = new BinarySearchTree();
+
+        //The new 12 "author" objects were added to the BST Binary Search Tree.
+        BST.add(auth1);
+        BST.add(auth2);
+        BST.add(auth3);
+        BST.add(auth4);
+        BST.add(auth5);
+        BST.add(auth6);
+        BST.add(auth7);
+        BST.add(auth8);
+        BST.add(auth9);
+        BST.add(auth10);
+        BST.add(auth11);
+        BST.add(auth12);
+        BST.add(auth13);
+        BST.add(auth14);
+        BST.add(auth15);
+
+        //All the elements of the BST are printed.
+        BST.print();
+        //The largest element of the BST is printed by the findMax method by taking the root of BST.
+        System.out.println("Biggest Author Element: " + BST.findMax(auth1));
+        //The smallest element of the BST is printed by the findMin method by taking the root of BST.
+        System.out.println("Smallest Author Element: " + BST.findMin(auth1));
+    }
+}
