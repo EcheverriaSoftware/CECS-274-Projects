@@ -8,12 +8,6 @@ interface. Now including methods, findMax and findMin method.
 Input: N/A:
 Output: N/A:
 */
-
-/**
- This class implements a binary search tree whose
- nodes hold objects that implement the Comparable
- interface.
- */
 public class BinarySearchTree
 {
     private Node root;
